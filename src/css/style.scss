@@ -1,0 +1,75 @@
+/*
+Theme Name: Braun Theme
+Theme URI: https://www.m1-development.com/
+Author: Demch.co
+Author URI: https://www.m1-development.com/
+Description: Тема Braun розроблено для компанії Braun
+Version: 1.0.0
+Tested up to: 7.0
+Requires PHP: 7.0
+*/
+ 
+//normalize
+@import "helpers/normalize";
+
+//helpers
+@import "helpers/variables"; 
+@import "helpers/fonts";
+@import "helpers/mixins";
+ 
+//vendors
+// @import "vendors/select2";
+
+//common
+@import "common/common";
+@import "common/header";
+@import "common/wordpress";
+@import "common/search";
+
+//pages parts
+//@import "pages/parts/news-item"
+
+//pages
+@import "pages/home";
+@import "pages/404";
+
+// content in single page
+@import "common/content";
+
+//common
+@import "common/footer";
+
+// sections
+
+@import "sections/hero";
+@import "sections/sections";
+@import "sections/categories";
+@import "sections/products";
+@import "sections/media-slider";
+@import "sections/blog";
+@import "sections/faq";
+@import "sections/cta";
+@import "sections/seo";
+@import "sections/breadcrumbs";
+@import "sections/series";
+@import "sections/filters";
+@import "sections/catalog";
+@import "sections/promo";
+@import "sections/product-card";
+@import "sections/product-features";
+@import "sections/technology";
+@import "sections/use";
+@import "sections/instruction";
+@import "sections/awards";
+@import "sections/contacts"; 
+@import "sections/partnership"; 
+@import "sections/services"; 
+@import "sections/mission"; 
+@import "sections/gallery"; 
+@import "sections/video"; 
+@import "sections/chronology"; 
+@import "sections/now"; 
+@import "sections/inter"; 
+@import "sections/certeficate"; 
+@import "sections/file"; 
+@import "sections/comments"; 

@@ -1,0 +1,47 @@
+{
+  "name": "starter-kit-lite",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "watch": "gulp watch --dev",
+    "prodwatch": "gulp watch",
+    "watch_l": "gulp watch_l --dev",
+    "prodwatch_l": "gulp watch_l",
+    "devbuild": "gulp --dev",
+    "build": "wp-scripts build",
+    "deploy": "gulp deploy",
+    "format-js": "wp-scripts format ./src",
+    "lint:css": "wp-scripts lint-style  ./src",
+    "lint:js": "wp-scripts lint-js ./src",
+    "packages-update": "wp-scripts packages-update",
+    "start": "wp-scripts start --webpack-copy-php"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@wordpress/blocks": "^11.18.0",
+    "@wordpress/editor": "^12.18.0",
+    "@wordpress/scripts": "^23.4.0",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.14",
+    "gulp": "^4.0.2",
+    "gulp-if": "^3.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.57.1",
+    "vinyl-ftp": "^0.6.1",
+    "webpack": "^5.91.0",
+    "yargs": "^17.6.2"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "lottie-web": "^5.12.2",
+    "swiper": "^11.2.6"
+  }
+}

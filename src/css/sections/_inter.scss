@@ -1,0 +1,43 @@
+.inter{
+  &__wrapper{
+    gap: 20px;
+  }
+  &__item{
+    width: calc(100% / 12 * 6 - 10px);
+    border-radius: 4px;
+    background-color: $light_grey;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    gap: 24px;
+    position: relative;
+    transition: background-color .3s ease-out;
+    @include sm{
+      width: 100%;
+    }
+    svg{
+      width: auto;
+      height: 48px;
+      fill: $black;
+      transition: fill .3s ease-out;
+      @include xs{
+        width: 40px;
+        height: 40px;
+      }
+    }
+    h4{
+      transition: color .3s ease-out;
+    }
+    &:hover{
+      background-color: $green;
+      svg{
+        fill: $white;
+      }
+      h4{
+        color: $white;
+      }
+    }
+  }
+}

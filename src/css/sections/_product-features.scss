@@ -1,0 +1,63 @@
+.tabs{
+  padding-bottom: 72px;
+  @include xs{
+    padding-bottom: 0px;
+  }
+  &__wrapper{
+    flex-wrap: wrap;
+  }
+  &__item{
+    width: 100%;
+    border-bottom: 1px solid $dark_grey; 
+    &-head,&-instruction{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 32px;
+      &:last-child{
+        cursor: auto;
+      }
+      &.active{
+        svg{
+          transform: rotate(-90deg);
+        }
+      }
+      @include sm{
+        padding: 24px 0;
+      }
+    }
+    &-body{
+      margin-top: 24px;
+      display: none;
+      padding-bottom: 32px;
+      li{
+        list-style: none;
+        padding: 16.5px 20px;
+        &:nth-child(odd){
+          background-color: $light_grey;
+        }
+        span{
+          font-size: $h5;
+          font-weight: 700;
+          line-height: 120%;
+          &:last-child{
+            font-size: $b2;
+            font-weight: 400;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+  &-icon{
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+    transition: transform .3s ease-out;
+    @include sm{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

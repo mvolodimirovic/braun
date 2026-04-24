@@ -1,0 +1,35 @@
+{
+  "name": "promo",
+  "title": "Promo",
+  "description": "",
+  "editorStyle": "file:./editor.css",
+  "editorScript": "file:./editor.js",
+  "style": "file:./style-script.css",
+  "script": "file:./script.js",
+  "category": "m1dev",
+  "icon": "cover-image",
+  "apiVersion": 2,
+  "keywords": [
+    "promo",
+    "block"
+  ],
+  "acf": {
+    "mode": "auto",
+    "renderTemplate": "promo.php"
+  },
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "color": true,
+    "customClassName": true,
+    "jsx": true
+  },
+  "example": {
+    "attributes": {
+      "mode": "preview",
+      "data": {
+        "_is_preview": "true"
+      }
+    }
+  }
+}

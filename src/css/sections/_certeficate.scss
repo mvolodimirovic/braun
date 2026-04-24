@@ -1,0 +1,48 @@
+.certificate{
+  h2{
+    width: 100%;
+    text-align: center;
+  }
+  &__list{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  &__item{
+    width: calc(100% / 12 * 3 - 15px);
+    &-img{
+      height: 0;
+      border: none;
+      padding-top: 125%;
+      position: relative;
+      margin-bottom: 16px;
+      img,svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    h4{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+    }
+    p{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      -webkit-line-clamp: 4;
+    }
+  }
+  &__wrapper{
+    gap: 40px;
+    @include sm{
+      gap: 32px;
+    }
+  }
+  .pagination{
+    margin: 0 auto;
+  }
+}

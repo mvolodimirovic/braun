@@ -1,0 +1,349 @@
+.card{
+  overflow: hidden;
+  padding: 72px 0;
+  @include xs{
+    padding: 48px 0;
+  }
+  &__wrapper{
+    gap: 20px;
+  }
+  &-gallery{
+    width: calc(100% / 12 * 7 - 10px);
+    max-height: 554px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+    @include md{
+      width: 100%;
+    }
+    @include xs{
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    & + .card__item{
+      width: calc(100% / 12 * 5 - 10px);
+    }
+  }
+  &__item{
+    width: 100%;
+    @include md{
+      width: 100%;
+    }
+    &-top{
+      span{
+        font-size: $b4;
+        color: $dark_grey;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      margin-bottom: 40px;
+      @include xs{
+        display: none;
+      }
+      &-mobile{
+        display: none;
+        @include xs{
+          display: flex;
+          margin-bottom: 0px;
+        }
+      }
+    }
+    &__labels{
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+      @include xs{
+        margin-bottom: 0px;
+      }
+      span{ 
+        background-color: $light_green;
+        padding: 5px 8px;
+        border-radius: 1px;
+        white-space: nowrap; 
+        color: $white;
+        align-self: flex-start;
+      }
+      .rating{
+        background-color: $green;
+        margin-left: auto;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        padding: 5px 8px 6px;
+        color: $white;
+        cursor: pointer;
+        span{
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          background-color: inherit;
+          padding: 0px;
+          border-radius: 0;
+          position: relative;
+        }
+        &:hover{
+          span{
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -2px; 
+              height: 1px;
+              background: $white;
+            }
+          }
+        }
+        &:active{
+          background-color: $light_green;
+        }
+        svg{
+          width: 16px;
+          height: 16px;
+          fill: $white
+        }
+      }
+    }
+    &__title{
+      font-size: clamp(24px, 4vw, 32px);
+      width: 100%;
+    }
+    &-middle{
+      margin-bottom: 40px;
+      overflow: hidden;
+      position: relative;
+      @include xs{
+        margin-bottom: 20px;
+      }
+    }
+    &__model{
+      border-radius: 4px;
+      &-name{
+        font-size: $b4;
+        color: $black;
+        text-align: center;
+        display: inline-block;
+        margin-top: 8px;
+        line-height: 130%;
+      }
+      &-img{
+        height: 0;
+        padding-top: 80%;
+        position: relative;
+        img{
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &-wrapp{
+          width: 100%;
+          padding: 20px;
+        }
+      }
+    }
+    &-bottom{
+      a{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    &__excerpt{
+      margin-top: 32px;
+      @include xs{
+        margin-top: 24px;
+      }
+      p{
+        font-size: $b3;
+        line-height: 130%;
+        margin: 16px 0;
+      }
+      pre{
+        font-size: $b4;
+        line-height: 130%;
+        color: $dark_grey;
+        margin: 16px 0;
+      }
+      *{
+        &:last-child{
+          margin-bottom: 0;
+        }
+        &:first-child{
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  &__slider{
+    &-multiple{
+      max-width: 110px;
+      width: 100%;
+      flex-shrink: 0;
+      height: 100%;
+      max-height: 489px;
+      @include md{
+        margin-left: 0 !important;
+      }
+      @include xs{
+        display: none!important;
+      }
+    }
+    &-single{
+      width: 100%;
+      height: 100%;
+      padding: 20px!important;
+      @include md{
+        max-width: 480px;
+      }
+      @include xs{
+        padding: 0!important;
+      }
+      .card__slider__item{
+        position: relative;
+        height: 0px;
+        border: none;
+        padding-top: 100%;
+        img{
+          position: absolute;
+          top: 0;
+          width: calc(100% - 40px);
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+    &__item{
+      opacity: .7;
+      cursor: pointer;
+      &.swiper-slide-active{
+        opacity: 1;
+      }
+    }
+  }
+  .gallery__pagination{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 110px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    z-index: 9;
+    @include xs{
+      position: static;
+      max-width: unset;
+      gap: 16px;
+      flex-direction: row;
+      order: 1;
+    }
+    .gallery-button-prev,.gallery-button-next{
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      background-color: $white;
+      transition: background-color .3s ease-out ;
+      cursor: pointer;
+      position: relative;
+      z-index: 9;
+      pointer-events: all;
+      border-radius: 50%;
+      opacity: 1;
+      flex-shrink: 0;
+      &.swiper-button-disabled{
+        display: none;
+        pointer-events: none;
+        @include xs{
+          display: block;
+          opacity: .5;
+        }
+      }
+      svg{
+        fill: $black;
+      }
+      &:hover{
+        background-color: $green;
+        svg{
+          fill: $white;
+        }
+      }
+    }
+    .gallery-button-next{
+      margin-top: auto;
+      svg{
+        transform: rotate(90deg);
+        @include xs{
+          transform: rotate(0deg);
+        }
+      }
+    }
+    .gallery-button-prev{
+      svg{
+        transform: rotate(-90deg);
+        @include xs{
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .swiper-progress{
+      display: none;
+      @include xs{
+        display: block;
+      }
+    }
+  }
+  .card__pagination{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+    transform: translateY(-50%);
+    .card-button-prev,.card-button-next{
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      background-color: $white;
+      transition: background-color .3s ease-out ;
+      cursor: pointer;
+      position: relative;
+      z-index: 8;
+      pointer-events: all;
+      border-radius: 50%;
+      &.swiper-button-disabled{
+        display: none;
+      }
+      svg{
+        fill: $black;
+      }
+      &:hover{
+        background-color: $green;
+        svg{
+          fill: $white;
+        }
+      }
+    }
+    .card-button-next{
+      margin-left: auto;
+      svg{
+        transform: rotate(0deg);
+      }
+    }
+    .card-button-prev{
+      svg{
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}  

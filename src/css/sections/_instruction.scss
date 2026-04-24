@@ -1,0 +1,83 @@
+.instruction{
+  &__item{
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    height: 0px;
+    position: relative;
+    padding-top: 43.056%;
+    @include sm{
+      padding-top: 100%;
+    }
+    img,video{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;  
+    }
+  }
+  &-search{
+    margin: 0 auto;
+  }
+  &s{
+    h2{
+      width: 100%;
+      text-align: center;
+    }
+    &__list{
+      display: flex;
+      flex-wrap: wrap;
+      gap:20px;
+      width: 100%;
+      margin-top: 32px;  
+    }
+    &__item{
+      width: calc(100% / 12 * 4 - 13.5px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      overflow: hidden;
+      @include sm{
+        width: 100%;
+        gap: 16px;
+      }
+      &:hover{
+        .instructions__item-img img{
+          transform: scale(1.1);
+        }
+      }
+      &-img{
+        width: 100%;
+        height: 0;
+        padding-top: 52.656%;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: transform .3s ease-out;
+        }
+      }
+    }
+  }
+}
+
+.services{
+  &-item{
+    &-img {
+      max-width: 56px;
+      max-height: 56px;
+    }
+    display: flex;
+    align-items: center;
+    gap: 0px 12px;
+    [data-name="seacrch-services"] &{
+      flex-wrap: wrap;
+    }
+  } 
+}

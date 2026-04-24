@@ -1,0 +1,191 @@
+.products{
+  margin-top: 40px;
+  padding-bottom: 72px;
+  &__wrapper{
+    position: relative;
+  }
+  .search &{
+    margin-top: 0px;
+    padding-top: 0px;
+    h3{
+      margin-bottom: 40px;
+    }
+  }
+  @include sm{
+    padding-bottom: 0px;
+  }
+  &__list{ 
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 20px;
+  }
+  &__item{
+    position: relative;
+    width: calc(100% / 12 * 4 - 13.5px);
+    display: flex;
+    flex-direction: column;
+    @include sm{
+      width: 100%;
+    }
+    &:hover{
+      .products__item__img{
+        transform: scale(1.1);
+      }
+    }
+    &.disabled{
+      pointer-events: none;
+      filter: grayscale(100%);
+      opacity: .4;
+    }
+    &-top{
+      background-color: $light_grey;
+      padding: 54px 16px 18px;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    &__img{
+      width: calc(100% / 12 * 5.6 - 1px);
+      margin: 0 auto;
+      position: relative;
+      height: 0;
+      border: none;
+      padding-top: 46.33%;
+      transition: transform .3s ease-out;
+      @include sm{
+        padding-top: 83.4%;
+      }
+      img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__labels{
+      position: absolute;
+      top: 18px;
+      left: 16px;
+      width: calc(100% - 32px);
+      display: flex;
+      gap: 16px;
+      span{ 
+        background-color: $light_green;
+        padding: 5px 8px;
+        border-radius: 1px;
+        white-space: nowrap; 
+        color: $white;
+        align-self: flex-start;
+      }
+      .rating{
+        background-color: $green;
+        margin-left: auto;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        padding: 5px 8px 6px;
+        color: $white;
+        cursor: pointer;
+        span{
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          background-color: inherit;
+          padding: 0px;
+          border-radius: 0;
+          position: relative;
+        }
+        &:hover{
+          span{
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -2px; 
+              height: 1px;
+              background: $white;
+            }
+          }
+        }
+        &:active{
+          background-color: $light_green;
+        }
+        svg{
+          width: 16px;
+          height: 16px;
+          fill: $white
+        }
+      }
+    }
+    &-middle{
+      margin-bottom: 20px;
+      p{
+        font-size: $b4; 
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+    &__attributes{
+      margin-bottom: 12px;
+      &:last-child{
+        margin-bottom: 0px;
+      }
+      span{
+        font-size: $b4;
+        color: $black;
+      }
+      ul{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        li{
+          list-style: none;
+          padding: 4px 8px;
+          font-size: $b4;
+          border-radius: 1px;
+          background-color: $light_grey;
+          &:first-child{
+            background-color: transparent;
+            padding: 0px;
+          }
+          a{
+            position: relative;
+            z-index: 2;
+          }
+        }
+      }
+    }
+    &-bottom{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      bdi{
+        font-size: clamp(18px, 3.5vw, 24px);
+        font-weight: 700;
+      }
+      a{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        z-index: 4;
+        .disabled &{
+          color: $black;
+          background-color: $dark_grey;
+        }
+      }
+      del bdi, del{
+        font-size: 16px;
+        color: $mid_grey;
+        font-weight: 700;
+      }
+    }
+  }
+}

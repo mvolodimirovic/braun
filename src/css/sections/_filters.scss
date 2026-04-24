@@ -1,0 +1,391 @@
+.filters{
+  width: 100%;
+  margin-top: 76px;
+  @include sm{
+    margin-top: 48px ;
+  }
+  &__wrapper{
+    gap: 24px;
+    .filters-services &{
+      gap: 20px;
+    }
+    @include sm{
+      gap: 16px;
+    }
+    &--warranty{
+      flex-wrap: nowrap;
+      @include sm{
+        flex-wrap: wrap;
+      }
+      h2{
+        flex-shrink: 0;
+      }
+    }
+  }
+  &__list{
+    max-height: 0px;
+    transition: max-height 0.5s ease-out;
+    position: absolute;
+    top: 110%;
+    overflow: hidden;
+    width: 100%;
+    z-index: 6;
+    background: $light_grey;
+    border-radius: 10px;
+    .border-wrapp{
+      // border: 1px solid $dark_grey;
+      border-radius: 10px;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    &-wrap{
+      padding: 6px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      overflow: auto;
+      list-style: none;
+      max-height: 260px;
+      height: fit-content;
+      
+      &.services-wrapper{
+        padding: 0;
+        gap: 12px;
+        position: relative;
+      }
+      .filters-services &{
+        max-height: 500px;
+      }
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: $light_grey;
+      }
+      
+      &::-webkit-scrollbar {
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        width: 2px;
+        background-color: transparent;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $black;
+      }
+    }
+    &__item{
+      width: 100%;
+      cursor: pointer;
+      &:hover,&:active{
+        span{
+          color: $green;
+        }
+      }
+      span{
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        column-gap: 10px;
+        color: $black;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        column-gap: 10px;
+        .point-icon{
+          width: 14px;
+          height: 14px;
+        }
+      } 
+      &.selected{
+        span{
+          color: $green;
+        }
+      }  
+      &.services-item{
+        padding: 12px 16px;
+        transition: background-color .3s ease-out;
+        position: relative; 
+        span{
+          color: $black;
+          font-size: $b3;
+          &+span{
+            margin-top: 8px;
+            font-size: $b4;
+            color: $dark_grey;
+            white-space: nowrap;  
+            overflow: hidden;           
+            text-overflow: ellipsis;
+          }
+          svg{
+            fill: $dark_grey;
+          }
+        }
+        &:hover{
+          background-color: $green;
+          span{
+            color: $white;
+          }
+          svg{
+            fill: $white;
+          }
+        }
+        &:active,&:focus{
+          background-color: $light_green;
+        }
+      }        
+    }
+  }
+  &-group{
+    position: relative;
+    &:not(:first-child){
+      width: calc(100% / 12 * 3.5 - 15px);
+      @include sm{
+        width: 100%;
+      }
+    } 
+    &.search-shop{
+      width: calc(100% / 12 * 5 - 12px);
+      @include lg{
+        width: calc(100% / 12 * 4 - 13.5px);
+      }
+      @include md{
+        width: 100%;
+      }
+      
+    }
+    .btn-close{
+          display: none;
+      }
+    .filters-icon{
+      display: block;
+    }
+    &.active{
+      .btn-close{
+        display: block; 
+      }
+      .filters-icon,.arrow-icon{
+        display: none;
+      }
+    }
+    &.search-area, &.search-district{
+      width: calc(100% / 12 * 3.47 - 11.2px);
+      @include lg{
+        width: calc(100% / 12 * 4 - 13.5px);
+      }
+      @include md{
+        width: calc(100% / 12 * 6 - 10px);
+      }
+      @include xs{
+        width: 100%;
+      }
+    }
+    &:has(input:focus) .filters__list{
+      max-height: 500px;
+    }
+    @include sm{
+      width: 100%;
+    }
+    &.disabled{
+      pointer-events: none;
+    }
+    &.warranty-page{
+      width: 100%;
+    }
+  }
+  &-choice{
+    display: flex;
+    width: 100%;
+    padding: 10px 16px;
+    min-height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 40px;
+    border: 1px solid $black;
+    transition: border 0.3s, color 0.3s ease-out;
+    color: $black;
+    font-size: $b2;
+    font-style: normal;
+    font-weight: 400;
+    &-title{
+      pointer-events: none;
+      position: relative;
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      &::before{
+        content: none;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $green;
+        display: block;
+        .enable &{
+          content: '';
+        }
+      }
+      &::first-letter{
+        text-transform: uppercase;
+      }
+    }
+    &:hover{
+      color: $green;
+      border: 1px solid $green;
+      svg{
+        fill: $green;
+      }
+    }
+    &:active{
+      color: $white;
+      border-color: $green;
+      background-color: $green;
+      svg{
+        fill: $white;
+      }
+    }
+    @include sm{
+      width: 100%;
+    }
+    &.active{
+      color: $white;
+      border-color: $green;
+      background-color: $green;
+      svg{
+        fill: $white;
+        transform: rotate(180deg);
+      }
+      & + .filters__list {
+        max-height: 260px; 
+      }
+    } 
+  }
+  &-label{
+    position: relative;
+    display: block;
+    width: 100%;
+    .search-area &, .search-district &{
+      .search-icon{
+        fill: $mid_grey;
+        opacity: 0;
+        transition: opacity .3s ease-out;
+      }
+      .arrow-icon{
+        transform: rotate(90deg) translateY(-50%);
+        transform-origin: top;
+        transition: opacity .3s ease-out;
+        opacity: 1;
+      }
+    }
+    .filters-icon{
+      position: absolute;
+      right: 16px;
+      fill: $black;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: fill .3s ease-out;
+      width: 18px;
+    }
+    input{
+      padding: 10px 16px;
+      border-radius: 30px;
+      border: 1px solid $dark_grey;
+      font-size: $b2;
+      color: $black;
+      transition: border-color .3s ease-out;
+      width: 100%;
+      &:disabled{
+        background-color: $mid_grey;
+        &::placeholder{
+          color: $dark_grey;
+        }
+        & ~ svg{
+          fill: $dark_grey;
+        }
+      }
+      &::placeholder{
+        font-size: $b2;
+        color: $black;
+        padding-left: 0;
+        transition: color .3s ease-out, padding-left 150ms ease-out;
+      }
+      &:hover{
+        border-color: $green;
+      }
+      &:focus{
+        border-color: $green;
+        &::placeholder{
+          color: $mid_grey;
+          padding-left: 5px;
+        }
+        & + .filters-icon{
+          fill: $mid_grey;
+        }
+        & + .search-icon{
+          opacity: 1;
+        }
+        & ~ .arrow-icon{
+          opacity: 0!important;
+        }
+      }
+    }
+  }
+  .btn-close{
+      position: absolute;
+      right: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9;
+      padding: 0;
+      border-radius: 0px;
+      .icon-close{
+        width: 16px;
+        height: 16px;
+        transition: fill .3s ease-out;
+      } 
+      &:hover{
+        background-color: transparent;
+        svg{
+          fill: $green;
+        }
+      }
+    }
+  &-all{
+    display: block;
+    height: 40px;
+    padding: 10px 16px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid $green;
+    background-color: $green;
+    color: $white;
+    position: relative;
+    font-size: $b2;
+    font-style: normal;
+    font-weight: 400;
+    transition: background-color .3s, color 0.3s ease-out, border-color .3s ease-out;
+    &:hover{
+      background-color: $light_green;
+      border: 1px solid $light_green;
+    }
+    &:active{
+      color: $black;
+      border-color: $black;
+      background-color: $white;
+    }
+    @include sm{
+      width: 100%;
+    }
+  }
+  &-icon{
+    width: 13px;
+    height: 18px;
+    fill: $black;
+    transition: fill .3s ease-out, transform .3s ease-out;
+  }
+} 

@@ -1,0 +1,225 @@
+.chronology{
+  h2{
+    width: 100%;
+    text-align: center;
+  }
+  &__wrapper{
+    position: relative;
+  }
+  &__short{
+    width: 100%;
+    margin-top: 40px;
+    position: relative;
+
+    &__item{
+      display: flex!important;
+      flex-direction: column;
+      align-items: center;
+      height: 123px;
+      position: relative;
+      cursor: pointer;
+      opacity: .5;
+      @include sm{
+        height: 105px;
+      }
+      @include xs{
+        width: 50%!important;
+      }
+      &.swiper-slide-active{
+        opacity: 1;
+      }
+      *{
+        position: relative;
+      }
+      &.swiper-year {
+        padding: 0 53px;
+        @include sm{
+        padding: 0 51px;
+        }
+      }
+      &::before{
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $dark_grey;
+        z-index: 0;
+      }
+      h3{
+        margin-bottom: 9px;
+        @include sm{
+          margin-bottom: 5px;
+        }
+        @include xs{
+          margin-bottom: 9px;
+        }
+      }
+      &-img{
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        padding: 5px;
+        background-color: $white;
+        overflow: hidden;
+        margin-bottom: auto;
+        img{
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        .swiper-year &{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      &-name{
+        color: $black;
+        font-size: $b3;
+        line-height: 130%;
+      }
+      &-explanation{
+        color: $green;
+        font-size: $b4;
+        line-height: 130%;
+      }
+      &.swiper-slide {
+        .chronology__short__item-img{
+          margin-top: auto;
+          margin-bottom: 5px;
+          @include sm{
+            margin-bottom: -2px;
+          }
+          @include xs{
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+  &__expanded{
+    margin-top: 32px;
+    &__item{
+      display: flex!important;
+      gap: 20px;
+      @include xs{
+        flex-wrap: wrap;
+        gap: 0px;
+      }
+      &-img{
+        width: calc(100% / 12 * 7 - 8.33px);
+        height: 0px;
+        position: relative;
+        border: 0px;
+        padding-top: 38.136%;
+        flex-shrink: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        @include xs{
+          width: 100%;
+          padding-top: 100%;
+        }
+        img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 24px 24px 48px;
+        @include md{
+          padding: 0; 
+          justify-content: flex-start; 
+        }
+        @include xs{
+          width: 100%;
+          padding: 16px;
+        }
+        h4{
+          margin-bottom: 8px;
+        }
+        h5{
+          color: $green;
+        }
+        h5+p{
+          margin-top: 24px;
+          @include md{
+            margin-top: 16px;
+          }
+        }
+        p{
+          font-size: $b3;
+          line-height: 130%;
+          display: -webkit-box;
+          -webkit-line-clamp: 7;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  &__pagination{
+    position: absolute;
+    bottom: 24px;
+    left: 61.5%;
+    display: flex;
+    gap: 32px;
+    @include md{
+      bottom: 0;
+      left: 59.5%;
+    }
+    @include sm{
+      position: static;
+      margin-top: 16px;
+    }
+    @include xs{
+      margin-top: 0;
+      margin-left: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &-button{
+    &-prev,&-next{
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      flex-shrink: 0;
+      background-color: $white;
+      border-radius: 50%;
+      padding: 8px;
+      transition: background-color .3s ease-out;
+      position: relative;
+      z-index: 2;
+      svg{
+        fill: $black;
+        transition: fill .3s ease-out;
+      }
+      &:hover{
+        background-color: $green;
+        svg{
+          fill: $white;
+        }
+      }
+      &:active{
+        background-color: $light_green;
+      }
+      &.swiper-button-disabled{
+        pointer-events: none;
+        svg{
+          fill: $dark_grey;
+        }
+      }
+    }
+    &-prev{
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

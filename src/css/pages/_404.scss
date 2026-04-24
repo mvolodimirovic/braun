@@ -1,0 +1,32 @@
+.error-404{
+  background-image: url('/wp-content/themes/braun_2025/img/404/404.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100svh - 88px);
+  align-items: center;
+  display: flex;
+  @include sm{
+    background-position: left 28% center;
+  }
+  &__wrapper{
+    gap: 24px 16px;
+  }
+  h1,h4{
+    width: 100%;
+    color: $white;
+  }
+  h4{
+    margin-bottom: 16px;
+    @include xs{
+      margin-bottom: 8px;
+    }
+  }
+  a{
+    &:last-child{
+      @include xs{
+        margin-top: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+//----------------------------------------
+// Block - Slider Styles, EDITOR
+//----------------------------------------
+
+.recipe{
+  margin-bottom: 72px;
+  padding: 0;
+  h2{
+    margin-bottom: 16px;
+  }
+  span{
+    color: grey;
+    font-size: 14px;
+    line-height: 130%;
+  }
+  .recipe__list{
+    margin: 32px 0 0;
+    li{
+      list-style: none;
+      padding: 16.5px 20px;
+      &::before{
+        content: none;
+      }
+      &:nth-child(odd){
+        background-color: grey;
+      }
+      span{
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 120%;
+        color: black;
+        &:last-child{
+          font-size: 12px;
+          font-weight: 400;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+}

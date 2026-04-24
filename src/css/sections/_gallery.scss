@@ -1,0 +1,132 @@
+.gallery{
+  &__wrapper{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    margin-bottom: 16px;
+  }
+  &__list{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    @include sm{
+      margin-top: 32px;
+    }
+  }
+  &__item{
+    position: relative;
+    width: calc(100% / 12  * 4 - 13.5px);
+    display: flex!important;
+    @include sm{
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    h4{
+      margin-bottom: 16px;
+    }
+    &-img{
+      height: 0;
+      overflow: hidden;
+      padding-top: 48.718%;
+      position: relative;
+      border-radius: 4px;
+      width: calc(100% / 12* 6 - 10px);
+      flex-shrink: 0;
+      @include sm{
+        margin-bottom: 16px;
+        width: 100%;
+      }
+      img{
+        transition: transform .3s ease-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-info{
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      @include sm{
+        padding: 0px;
+        gap: 12px;
+      }
+      h4{
+        @include sm{
+          margin-bottom: 0px;
+        }
+      }
+      p{
+        margin: 0px;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+    &__cat{
+      color: $green;
+    }
+    &__link{
+      margin-top: auto;
+      @include sm{
+        margin-top: 12px;
+      }
+    }
+    &-cat{
+      margin-bottom: 8px;
+      background-color: $light_grey;
+      padding: 4px 6px;
+      font-size: 14px;
+      line-height: 130%;
+      display: inline-block;
+    }
+    &:hover{
+      .blog__item-img img{
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__pagination{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 32px;
+    align-items: center;
+    @include sm{
+      gap: 16px;
+      margin-top: 24px;
+    }
+  }
+  &-button{
+    &-prev,&-next{
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      flex-shrink: 0;
+      @include sm{
+        width: 20px;
+        height: 20px;
+      }
+      &.swiper-button-disabled{
+        svg{
+          fill: $dark_grey;
+        }
+      }
+    }
+    &-prev{
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
